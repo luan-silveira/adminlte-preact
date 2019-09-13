@@ -1,0 +1,17 @@
+{
+	"presets": [
+		"preact"
+	],
+	"plugins": [
+		"@babel/plugin-proposal-object-rest-spread",
+		"@babel/plugin-proposal-class-properties"
+	],
+
+	"env": {
+		"test": {
+		  "presets": [
+			 ["preact-cli/babel", { "modules": "commonjs" }]
+		  ]
+		}
+	 }
+}
