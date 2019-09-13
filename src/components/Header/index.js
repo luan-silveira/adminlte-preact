@@ -1,11 +1,12 @@
 import { h, Component } from "preact";
+import {Link} from 'react-router-dom';
 import Navbar from "./navbar";
 
 const Logo = () => (
-	<a href="index2.html" className="logo">
-		<span className="logo-mini"><b>A</b>LT</span>
-		<span className="logo-lg"><b>Admin</b>LTE</span>
-	</a>
+	<Link to="/" class="logo">
+		<span class="logo-mini"><b>A</b>LT</span>
+		<span class="logo-lg"><b>Admin</b>LTE</span>
+	</Link>
 );
 
 

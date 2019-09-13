@@ -6,7 +6,7 @@ import Login from "./routes/login";
 import Home from "./routes/home";
 import { logout } from "./auth";
 
-function Main(props) {
+function Main() {
 	return (
 		<div id="app">
 			<Router>
@@ -15,17 +15,20 @@ function Main(props) {
 					<App>
 						<PrivateRoute exact path="/" />
 						<PrivateRoute path="/home" component={Home} />
+						<Route path="/logout" render={props => {
+							logout();
+							return (<Redirect to={{ pathname: '/login', state: { from: props.location } }} />);
+						}}/>
 					</App>
-					<Route path="/logout" component={Logout} />
 				</Switch>
 			</Router>
 		</div>
 	);
 }
 
-function Logout() {
+function Logout(props) {
 	logout();
-	return <Redirect to={{ pathname: '/login', state: { from: props.location } }} />;
+	location.href = '/login';
 }
 
 render(<Main />, document.body);

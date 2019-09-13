@@ -34,6 +34,8 @@ module.exports = {
 	devServer: {
 		contentBase: buildDirPath,
 		port: 8080,
+		publicPath: '/',
+		historyApiFallback: true,
 	},
 	plugins: [
 		new CopyPlugin([
