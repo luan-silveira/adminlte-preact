@@ -3,6 +3,7 @@ import { Row, Form, Col } from 'react-bootstrap';
 import { Panel, FormField } from '../../../components/widgets';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
+import { Link } from 'react-router-dom';
 
 export default class EmpresasList extends Component {
 	rows = [];
