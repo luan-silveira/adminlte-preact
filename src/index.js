@@ -5,7 +5,7 @@ import { PrivateRoute } from "./components/PrivateRoute";
 import Login from "./routes/login";
 import Home from "./routes/home";
 import { logout } from "./auth";
-import EmpresasList from "./routes/Clientes/Empresas";
+import Empresas from "./routes/Clientes/Empresas";
 
 function Main() {
 	return (
@@ -14,9 +14,9 @@ function Main() {
 				<Switch>
 					<Route path="/login" component={Login} />
 					<App>
-						<PrivateRoute exact path="/" component={Home} />
+						<PrivateRoute exact path="/" />
 						<PrivateRoute path="/home" component={Home} />
-						<PrivateRoute path="/empresas" component={EmpresasList}/>
+						<PrivateRoute path="/empresas" component={Empresas} />
 						<Route path="/logout" render={props => {
 							logout();
 							return (<Redirect to={{ pathname: '/login', state: { from: props.location } }} />);
