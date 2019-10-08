@@ -5,6 +5,8 @@ import { PrivateRoute } from "./components/PrivateRoute";
 import Login from "./routes/login";
 import Home from "./routes/home";
 import { logout } from "./auth";
+import EmpresasList from "./routes/Clientes/Empresas";
+import Panel from "./components/widgets/panel";
 
 function Main() {
 	return (
@@ -15,6 +17,7 @@ function Main() {
 					<App>
 						<PrivateRoute exact path="/" />
 						<PrivateRoute path="/home" component={Home} />
+						<PrivateRoute path="/empresas" component={EmpresasList} />
 						<Route path="/logout" render={props => {
 							logout();
 							return (<Redirect to={{ pathname: '/login', state: { from: props.location } }} />);
@@ -24,11 +27,6 @@ function Main() {
 			</Router>
 		</div>
 	);
-}
-
-function Logout(props) {
-	logout();
-	location.href = '/login';
 }
 
 render(<Main />, document.body);

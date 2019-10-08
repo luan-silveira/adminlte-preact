@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 export default class MenuItem extends Component {
 
 	render(props) {
-
-		let hasChildren = !!props.children && props.children.length > 0;
+		let children = props.children;
+		let hasChildren = children && (!Array.isArray(children) || children.length > 0)
 
 		return (
 			<li class={hasChildren ? "treeview" : ""}>
-				<Link to={!props.href ? "#" : props.href}>
+				<Link to={!props.path ? "#" : props.path}>
 					<i class={props.icon} style={{ paddingRight: 4 }} />
 					<span>{props.title}</span>
 					{ hasChildren ? (

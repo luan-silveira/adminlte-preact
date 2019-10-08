@@ -15,13 +15,8 @@ export default class Sidebar extends Component{
 					</div> */}
 
 					<Menu>
-						<MenuItem title="Teste2" icon="fa fa-coffee fa-fw" href="home"/>
-						<MenuItem title="Teste" icon="fa fa-user fa-fw">
-							<MenuItem title="Level 2" />
-							<MenuItem title="Level 2" />
-							<MenuItem title="Level 2">
-								<MenuItem title="level 3" />
-							</MenuItem>
+						<MenuItem title="Clientes" icon="fa fa-group fa-fw">
+							<MenuItem title="Empresas" path="/empresas" icon="fa fa-building-o fa-fw" />
 						</MenuItem>
 					</Menu>
 				</section>
