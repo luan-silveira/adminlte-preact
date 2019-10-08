@@ -1,11 +1,11 @@
 export function isAuthenticated() {
-	return !!localStorage.getItem('token');
+	return !!sessionStorage.getItem('token');
 }
 
 export function logout() {
-	localStorage.removeItem('token');
+	sessionStorage.removeItem('token');
 }
 
 export function auth(token){
-	localStorage.setItem('token', token)
+	sessionStorage.setItem('token', token)
 }

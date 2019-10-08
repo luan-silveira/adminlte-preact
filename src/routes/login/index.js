@@ -38,7 +38,7 @@ export default class Login extends Component {
 				if (ret.status === 'error') {
 					this.showAlert(ret.data);
 				} else {
-					localStorage.setItem('token', ret.data);
+					sessionStorage.setItem('token', ret.data);
 					location.href="/";
 				}
 			})

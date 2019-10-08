@@ -17,6 +17,10 @@ export default class Sidebar extends Component{
 					<Menu>
 						<MenuItem title="Clientes" icon="fa fa-group fa-fw">
 							<MenuItem title="Empresas" path="/empresas" icon="fa fa-building-o fa-fw" />
+							<MenuItem title="Sócios" icon="fa fa-user fa-fw" />
+						</MenuItem>
+						<MenuItem title="Cadastros" icon="fa fa-file-text-o fa-fw">
+							<MenuItem title="ESCs" icon="fa fa-building fa-fw" />
 						</MenuItem>
 					</Menu>
 				</section>

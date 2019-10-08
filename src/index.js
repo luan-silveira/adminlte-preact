@@ -6,7 +6,6 @@ import Login from "./routes/login";
 import Home from "./routes/home";
 import { logout } from "./auth";
 import EmpresasList from "./routes/Clientes/Empresas";
-import Panel from "./components/widgets/panel";
 
 function Main() {
 	return (
@@ -15,9 +14,9 @@ function Main() {
 				<Switch>
 					<Route path="/login" component={Login} />
 					<App>
-						<PrivateRoute exact path="/" />
+						<PrivateRoute exact path="/" component={Home} />
 						<PrivateRoute path="/home" component={Home} />
-						<PrivateRoute path="/empresas" component={EmpresasList} />
+						<PrivateRoute path="/empresas" component={EmpresasList}/>
 						<Route path="/logout" render={props => {
 							logout();
 							return (<Redirect to={{ pathname: '/login', state: { from: props.location } }} />);

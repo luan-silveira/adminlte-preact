@@ -1,6 +1,7 @@
 import { h } from 'preact';
+import { Form } from 'react-bootstrap';
 
-const FormField = ({ type, label, ...props}) => (
+const FormField = ({ type, label, ...props }) => (
 	<Form.Group>
 		<Form.Label>{label}</Form.Label>
 		<Form.Control type={type} {...props} />
