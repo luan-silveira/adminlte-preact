@@ -4,25 +4,25 @@ import { Panel, FormField } from '../../../components/widgets';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import { Link } from 'react-router-dom';
+import DataGrid from '../../../components/widgets/DataGrid';
 
 export default class EmpresasList extends Component {
 	rows = [];
 
-	componentDidMount() {
-		fetch('http://localhost/WSPlataformaESC/rest.php?class=GnrEmpService&method=handle')
-			.then(res => res.json())
-			.then(json => {
-				this.rows = json;
-			})
-	}
+	// componentDidMount() {
+	// 	fetch('http://localhost/WSPlataformaESC/rest.php?class=GnrEmpService&method=handle')
+	// 		.then(res => res.json())
+	// 		.then(json => {
+	// 			this.rows = json;
+	// 		})
+	// }
 
 	render() {
 
 		const datagridColumns = [
 			{ dataField: '', text: '', formatter: (_, row) => {
-				console.log(row);
 				return <Fragment>
-					<Link to={"/empresas/" + row.empid}>
+					<Link to={`/empresas/${row.empid}`}>
 						<i class='fa fa-eye fa-lg'></i>
 					</Link>
 				</Fragment>
@@ -63,7 +63,14 @@ export default class EmpresasList extends Component {
 				</Panel>
 
 				<Panel variant="default">
-					<BootstrapTable id="table" keyField="empid" columns={datagridColumns} data={this.rows} pagination={ paginationFactory() } />
+					{/* <BootstrapTable remote={ {
+							filter: true,
+							pagination: false,
+							sort: false,
+							cellEdit: false
+							} 
+						} id="table" keyField="empid" columns={datagridColumns} data={this.rows} pagination={ paginationFactory() } /> */}
+						<DataGrid id="table" keyField="empid" columns={datagridColumns} url="http://localhost/WSPlataformaESC/rest.php?class=GnrEmpService&amp;method=handle" />
 				</Panel>
 
 			</Fragment>

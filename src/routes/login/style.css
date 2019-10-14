@@ -4,6 +4,29 @@
 	max-width: 460px;
 }
 
+.overlay {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background-color: rgba(0, 0, 0, 0.205);
+}
+
+.overlay .overlay-content {
+	position: absolute;
+	align-items: center;
+	width: 150px;
+	height: 100px;
+	left: calc(50% - 75px);
+	top: calc(50% - 50px);
+	padding: 10px;
+	font-weight: bold;
+	text-align: center;
+	background-color: white;
+}
+
 .div_panel_default {
 	width: 100%;
 }

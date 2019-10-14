@@ -7,7 +7,8 @@ export default class Login extends Component {
 
 	state = {
 		username: '',
-		password: ''
+		password: '',
+		loading: false,
 	};
 
 	showAlert = (message) => {
@@ -32,6 +33,7 @@ export default class Login extends Component {
 			body: JSON.stringify(this.state)
 		}
 
+		this.setState({ loading: true });
 		fetch('http://localhost/CursoAdiantiPreact/rest.php', options)
 			.then(this.handleResponse)
 			.then(ret => {
@@ -39,7 +41,7 @@ export default class Login extends Component {
 					this.showAlert(ret.data);
 				} else {
 					sessionStorage.setItem('token', ret.data);
-					location.href="/";
+					location.href = "/";
 				}
 			})
 			.catch(error => {
@@ -48,6 +50,7 @@ export default class Login extends Component {
 	}
 
 	handleResponse = response => {
+		this.setState({ loading: false });
 		return response.text().then(text => {
 			const data = text && JSON.parse(text);
 			if (!response.ok) {
@@ -65,9 +68,15 @@ export default class Login extends Component {
 		});
 	}
 
-	render() {
+	render(_, { loading }) {
 		return (
 			<div class="login_wrapper" id="login-wrapper">
+				<div class="overlay"  style={{ display: loading ? "block" : "none" }}>
+					<div class="overlay-content">
+						<img src="assets/img/loading.gif" style={{ width: 50, height: 50, margin: "auto" }} />
+						<h4>Aguarde...</h4>
+					</div>
+				</div>
 				<div class="panel panel-default div_panel_default" widget="bootstrapformbuilder" form="form_login" id="bform_1757563965">
 					<div class="panel-heading div_panel_heading">
 						<div class="panel-title" style={{ padding: 5, float: 'left' }}>Login</div>

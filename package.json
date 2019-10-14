@@ -17,7 +17,8 @@
     "eslint": "^6.3.0",
     "file-loader": "^4.2.0",
     "preact": "^10.0.0-rc.3",
-    "preact-mui": "^0.1.1"
+    "preact-mui": "^0.1.1",
+    "react-bootstrap-table2-overlay": "^2.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-0",
