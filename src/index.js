@@ -31,4 +31,4 @@ function Main() {
 	);
 }
 
-render(<Main />, document.body);
+render(<Main />, document.getElementById('root'));

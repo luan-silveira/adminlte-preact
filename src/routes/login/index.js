@@ -45,6 +45,7 @@ export default class Login extends Component {
 				}
 			})
 			.catch(error => {
+				this.setState({ loading: false });
 				this.showAlert(error.message);
 			})
 	}
